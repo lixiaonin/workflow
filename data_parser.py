@@ -7,7 +7,9 @@ from helper import size_readable
 
 
 class DataParser(object):
-    """ Parse locally saved .tsv file to JSON file """
+    """ 
+    Parse locally saved .tsv file to JSON file 
+    """
     
     def __init__(self, src_path='', url=''):
         self.url = url
@@ -48,7 +50,10 @@ class DataParser(object):
 
         
     def read_n_process(self):
-        """
+        """ 
+        Read data from raw file,
+        convert to organized data,
+        and calculate min, max and median in parallel
         """
         f = open(self.src_path, 'r')
         for i, line in enumerate(f):
@@ -86,32 +91,46 @@ class DataParser(object):
         f.close()
 
     def remove_raw(self):
-        ''' delete raw data after successfully. '''
+        """ 
+        Delete raw data. 
+        """
         os.remove(self.src_path)
 
     def write_data(self):
-        with open(self.des_path_data, 'w') as f:
-            json.dump({
-                'data': self.data,
-                'meta': {
-                    'src': self.url,
-                    },
-                }, f)
-        f.close()
-        return os.path.getsize(self.des_path_data)
+        """ 
+        Write whole data file to JSON 
+        """
+        try:
+            with open(self.des_path_data, 'w') as f:
+                json.dump({
+                    'data': self.data,
+                    'meta': {
+                        'src': self.url,
+                        },
+                    }, f)
+            f.close()
+            return os.path.getsize(self.des_path_data)
+        except Exception, e:
+            raise Exception('write whole file err : %s' % str(e))
 
     def write_stats(self):
-        with open(self.des_path_stats, 'w') as f:
-            json.dump({
-                'min': self.min_15,
-                'max': self.max_15,
-                'median': self.med_15,
-                'meta': {
-                    'src': self.url,
-                    },
-                }, f)
-        f.close()
-        return os.path.getsize(self.des_path_stats)
+        """ 
+        Write statistical data to JSON 
+        """
+        try:
+            with open(self.des_path_stats, 'w') as f:
+                json.dump({
+                    'min': self.min_15,
+                    'max': self.max_15,
+                    'median': self.med_15,
+                    'meta': {
+                        'src': self.url,
+                        },
+                    }, f)
+            f.close()
+            return os.path.getsize(self.des_path_stats)
+        except Exception, e:
+            raise Exception('write stats file err : %s' % str(e))
 
 
 if __name__ == "__main__":

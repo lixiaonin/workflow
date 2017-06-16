@@ -6,6 +6,7 @@ from requests.exceptions import *
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 class DataFetcher(object):
+    """ Fetch raw data from given url """
 
     def __init__(self, url, attempt_count=3, attempt_interval=1, path=''):
         # fetcher settings.
@@ -13,9 +14,14 @@ class DataFetcher(object):
         self.file_path = os.path.join(path, url.split('/')[-1])
         self.attempt_count = attempt_count
         self.attempt_interval = attempt_interval
+
         # mkdir for data directory if not exist.
-        if not os.path.exists(path):
-            os.makedirs(path)
+        try:
+            if not os.path.exists(path):
+                os.makedirs(path)
+        except Exception, e:
+            raise Exception('Cannot create directory : %s' % str(e))
+
         # fetch data.
         self.fetch()
 

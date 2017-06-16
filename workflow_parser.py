@@ -4,7 +4,7 @@ import logging
 import urllib
 
 class WorkflowParser(object):
-
+    # parse workflow file to data attributes.
     url = ''
     num_of_attempts = 3
     attempt_interval = 1
@@ -15,6 +15,9 @@ class WorkflowParser(object):
         self._parse(wf_path)
 
     def _parse(self, wf_path):
+        """ 
+        Parse workflow file
+        """
         for line in open(wf_path, 'r'):
             k, v = WorkflowParser._parse_line(line)
             if k == 'URL': 
@@ -40,14 +43,16 @@ class WorkflowParser(object):
 
     @staticmethod
     def _parse_line(line):
-        # remove comments
+        """ 
+        Parse one line of settings to a (key, value) pair 
+        """
         line = line[:line.find('#')] 
-        # parse attribute - value pair.
         j = line.find('=')
         k, v = line[:j], line[j+1:].rstrip('\n')
         return k.strip(), v.strip()
 
     def _print(self):
+        """ internal print function for debuging """
         print '[Workflow - %s]' % self.wf_path
         print '  url                :',self.url
         print '  num_of_attempts    :',self.num_of_attempts

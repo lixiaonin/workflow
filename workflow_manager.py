@@ -58,4 +58,6 @@ class WorkflowManager(object):
 
 
 if __name__ == "__main__":
-    WorkflowManager.run_workflow('dataset002.workflow')
+    # WorkflowManager.run_workflow('inventory.workflow')
+    # WorkflowManager.run_workflow('inventory_bad_line.workflow')
+    WorkflowManager.run_workflow('inventory_invalid_path.workflow')

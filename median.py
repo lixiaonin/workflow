@@ -1,7 +1,7 @@
 from heapq import *
 
 class Median: 
-
+    """ A running median calculator. """
     def __init__(self):
         self.small = []
         self.large = []
