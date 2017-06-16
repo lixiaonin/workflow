@@ -3,7 +3,6 @@ import time
 from requests import get as get_url
 from requests.exceptions import *
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
 
 class DataFetcher(object):
     """ Fetch raw data from given url """

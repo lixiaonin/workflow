@@ -4,7 +4,9 @@ import logging
 import urllib
 
 class WorkflowParser(object):
-    # parse workflow file to data attributes.
+    """ 
+    Parse workflow file to data attributes. 
+    """
     url = ''
     num_of_attempts = 3
     attempt_interval = 1
