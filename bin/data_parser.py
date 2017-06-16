@@ -87,7 +87,7 @@ class DataParser(object):
                         },
                     })
             except Exception, e:
-                print '    [Warning][Data Parsing] uncleanable data: %s' % repr(line)
+                print '    [Warn]   [Data Parsing] uncleanable data: %s' % repr(line)
         f.close()
 
     def remove_raw(self):
