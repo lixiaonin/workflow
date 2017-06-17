@@ -74,9 +74,13 @@ Test cases is put in /bin/test.py, to run the testcases you can simply:
 python workflow/bin/test.py
 ```
 And you should be able to see the results of a sequence of tests including:
+
 1, Normal execution, inventory.tsv, Success
+
 2, Bad source URL, Fail
+
 3, Invalid output path in workflow definition file, Fail
+
 4, Bad data line in tsv file, Warning, Success
 
 Saved JSON files can be found in /data directory.
