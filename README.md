@@ -25,7 +25,7 @@ sudo apt-get install python
 
 You can clone the repository to your local directory 
 ```
-git clone git@github.com:lixiaonin/workflow.git
+git clone https://github.com/lixiaonin/workflow.git
 ```
 
 Then create a workflow file and open the file.
