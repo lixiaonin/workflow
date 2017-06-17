@@ -1,36 +1,44 @@
-# Project Title
+# Workflow Manager
 
-One Paragraph of project description goes here
+A simple workflow manager that follows directions from a .workflow file to download .tsv file from web and parse the data and save cleaned data to JSON files.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the Workflow Manager up and running on your local machine.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+You will need python2.7 to run this project.
 
+For MacOS or OS X
 ```
-Give examples
+brew install python
+```
+
+For Ubuntu
+```
+sudo apt-get install python
 ```
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
 
-Say what the step will be
-
+You can clone the repository to your local directory 
 ```
-Give the example
+git clone git@github.com:lixiaonin/workflow.git
 ```
 
-And repeat
-
+Enter the project directory and start python console
 ```
-until finished
+cd workflow
+python
 ```
+then import workflow manager
+```
+from bin import *
 
-End with an example of getting some data out of the system or using it for a little demo
+WorkflowManager.run_workflow(full_path_of_workflow_file)
+```
 
 ## Running the tests
 
@@ -41,7 +49,14 @@ Explain how to run the automated tests for this system
 Explain what these tests test and why
 
 ```
-Give an example
+
+	[Done]   [Workflow Parsing]
+    [Done]   [Data Fetching] - 0.072 seconds
+    [Done]   [Data Processing] - 0.001 seconds
+    [Done]   [Data Writing] - 0.002 seconds
+    Output data  : 7.3KB
+    Output stats : 138.0B
+    [Success]
 ```
 
 ### And coding style tests
@@ -85,4 +100,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Hat tip to anyone who's code was used
 * Inspiration
 * etc
-
