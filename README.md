@@ -20,7 +20,7 @@ For Ubuntu
 sudo apt-get install python
 ```
 
-### Installing
+### Installing & How to Use
 
 
 You can clone the repository to your local directory 
@@ -28,17 +28,40 @@ You can clone the repository to your local directory
 git clone git@github.com:lixiaonin/workflow.git
 ```
 
-Enter the project directory and start python console
+Then create a workflow file and open the file.
 ```
-cd workflow
-python
+touch inventory.workflow
+vim inventory.workflow
 ```
-then import workflow manager
-```
-from bin import *
 
-WorkflowManager.run_workflow(full_path_of_workflow_file)
+Add the following setting lines to the file (order doesn't matter).
 ```
+# keywords should be on left side of '=' symbol and values are one right side.
+# '#' is single line comment, all characters after '#' will not be catched by the program
+
+# url of the source tsv file, required.
+URL = https://raw.githubusercontent.com/lixiaonin/workflow/master/inventory.tsv
+
+# number of URL call attempts before it fails. default is 3 if not provided
+NUM_OF_ATTEMPTS = 3
+
+# the interval between two URL call attempts(in second). default is 1 sec.
+ATTEMPT_INTERVAL = 1
+
+# output path for JSON files, can be either absolute or relative path. default is current directory.
+FILE_PATH = data_directory
+
+```
+
+Save the workflow file and open python console.
+Import WorkflowManager and call static method run_workflow directly.
+```
+from workflow import WorkflowManager
+
+WorkflowManager.run_workflow('inventory.workflow')
+```
+If the entire workflow completes successfully, [Success] will be printed to the console at the end. If error happens, a message should be printed with erro details and the current step being attempted.
+
 
 ## Running the tests
 
