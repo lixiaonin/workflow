@@ -60,9 +60,11 @@ from workflow import WorkflowManager
 
 WorkflowManager.run_workflow('inventory.workflow')
 ```
-If the entire workflow completes successfully, [Success] will be printed to the console at the end. If error happens, a message should be printed with erro details and the current step being attempted.
-![]({{site.baseurl}}//Screen%20Shot%202017-06-16%20at%208.46.03%20PM.png)
-![]({{site.baseurl}}//Screen%20Shot%202017-06-16%20at%208.49.00%20PM.png)
+If the entire workflow completes successfully, [Success] will be printed to the console at the end. 
+![]({{site.baseurl}}/https://raw.githubusercontent.com/lixiaonin/workflow/master/Screen%20Shot%202017-06-16%20at%208.46.03%20PM.png)
+
+If error happens, a message should be printed with erro details and the current step being attempted.
+![]({{site.baseurl}}/https://raw.githubusercontent.com/lixiaonin/workflow/master/Screen%20Shot%202017-06-16%20at%208.49.00%20PM.png)
 
 ## Running the tests
 
