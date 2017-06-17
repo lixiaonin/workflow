@@ -29,16 +29,16 @@ class DataFetcher(object):
             try:
                 response = get_url(self.url, stream=True)
                 with open(self.file_path, 'wb') as out_file:
-                    for chunk in response.iter_content(chunk_size=1024): 
+                    for chunk in response.iter_content(chunk_size=1024):
                         if chunk:
                             out_file.write(chunk)
                 del response
                 return self.file_path
             except (ConnectionError, Timeout):
-                print '    [Retry] Connerction error'
+                print '    [Retry] Connection error or invalid URL.'
                 self.attempt_count -= 1
                 if not self.attempt_count:
-                    raise Exception('Maximum number of attempts reached') 
+                    raise Exception('Maximum number of attempts reached')
                 time.sleep(self.attempt_interval)
 
     def _print(self):
