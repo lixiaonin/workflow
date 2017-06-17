@@ -35,7 +35,7 @@ class DataFetcher(object):
                 del response
                 return self.file_path
             except (ConnectionError, Timeout):
-                print '[Retry] Connerction error'
+                print '    [Retry] Connerction error'
                 self.attempt_count -= 1
                 if not self.attempt_count:
                     raise Exception('Maximum number of attempts reached') 
