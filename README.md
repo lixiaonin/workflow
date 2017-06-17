@@ -67,6 +67,28 @@ If the entire workflow completes successfully, [Success] will be printed to the 
 If error happens, a message should be printed with erro details and the current step being attempted.
 ![alt text](https://raw.githubusercontent.com/lixiaonin/workflow/master/Screen%20Shot%202017-06-16%20at%208.49.00%20PM.png)
 
+
+## Break down the components
+
+
+**workflow_manager.py** - core logic of workflow manager.
+
+**workflow_parser.py** - parse workflow definition/setting file.
+
+**data_fetcher.py** - fetch data from remote URL and save raw data locally(delete when workflow is successfully executed)
+
+**data_parser.py** - read raw data, clean data, calculate running maximum, minimum and median values for the 2015 Volume column. And write both in JSON to disk files.
+
+**helper.py** - small helper function such as convert byte number to human readable string.
+
+**median.py** - a running median calculator that takes value stream and calculate current median in efficient manner.
+
+**test.py** - script to run test cases
+
+*dataset_generator.py - 
+
+
+
 ## Running the tests
 
 Test cases is put in /bin/test.py, to run the testcases you can simply:
