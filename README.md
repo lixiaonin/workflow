@@ -69,61 +69,15 @@ If error happens, a message should be printed with erro details and the current 
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+Test cases is put in /bin/test.py, to run the testcases you can simply:
 ```
-
-	[Done]   [Workflow Parsing]
-    [Done]   [Data Fetching] - 0.072 seconds
-    [Done]   [Data Processing] - 0.001 seconds
-    [Done]   [Data Writing] - 0.002 seconds
-    Output data  : 7.3KB
-    Output stats : 138.0B
-    [Success]
+python workflow/bin/test.py
 ```
+And you should be able to see the results of a sequence of tests including:
+1, Normal execution, inventory.tsv, Success
+2, Bad source URL, Fail
+3, Invalid output path in workflow definition file, Fail
+4, Bad data line in tsv file, Warning, Success
 
-### And coding style tests
+Saved JSON files can be found in /data directory.
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
